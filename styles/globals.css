@@ -16,3 +16,13 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@layer base {
+  body {
+    @apply bg-[#001021] text-white;
+  }
+
+  li {
+    @apply cursor-pointer;
+  }
+}
