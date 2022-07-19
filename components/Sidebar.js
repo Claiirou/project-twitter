@@ -4,11 +4,20 @@ import {
   HashtagIcon,
   BookmarkIcon,
   CollectionIcon,
-  DotsCircleHorizontalIcon,
+  // DotsCircleHorizontalIcon,
   MailIcon,
-  UserIcon,
+  // UserIcon,
   HomeIcon,
 } from "@heroicons/react/outline";
+import { AiOutlineMenu } from "react-icons/ai";
+import Link from "next/link";
+
+// const Navbar = () => {
+//   const [nav, setNav] = useState(false);
+
+//   const handleNav = () => {
+//     setNav(!nav);
+//   };
 
 function Sidebar() {
   return (
@@ -19,32 +28,49 @@ function Sidebar() {
 
       <div>
         <ul className="hidden md:flex">
-          <div className="flex items-center space-x-2 px-4 py-3">
-            <HomeIcon className="w-6 h-6" />
-            <p>Home</p>
-          </div>
-          <div className="flex items-center space-x-2 px-4 py-3">
-            <HashtagIcon className="w-6 h-6" />
-            <p>Explore</p>
-          </div>
-          <div className="flex items-center space-x-2 px-4 py-3">
-            {" "}
-            <BellIcon className="w-6 h-6" />
-            <p>Notifications</p>
-          </div>
-          <div className="flex items-center space-x-2 px-4 py-3">
-            <MailIcon className="w-6 h-6" />
-            <p>Messages</p>
-          </div>
-          <div className="flex items-center space-x-2 px-4 py-3">
-            <BookmarkIcon className="w-6 h-6" />
-            <p>Bookmarks</p>
-          </div>
-          <div className="flex items-center space-x-2 px-4 py-3">
-            <CollectionIcon className="w-6 h-6" />
-            <p>Lists</p>
-          </div>
+          <Link href="/">
+            <li className="flex items-center space-x-2 px-4 py-3">
+              {" "}
+              <HomeIcon className="w-6 h-6" />
+              <p>Home</p>
+            </li>
+          </Link>
+          <Link href="/">
+            <li className="flex items-center space-x-2 px-4 py-3">
+              <HashtagIcon className="w-6 h-6" />
+              <p>Explore</p>
+            </li>
+          </Link>
+          <Link href="/">
+            <li className="flex items-center space-x-2 px-4 py-3">
+              <BellIcon className="w-6 h-6" />
+              <p>Notifications</p>
+            </li>
+          </Link>
+          <Link href="/">
+            <li className="flex items-center space-x-2 px-4 py-3">
+              <MailIcon className="w-6 h-6" />
+              <p>Messages</p>
+            </li>
+          </Link>
+
+          <Link href="/">
+            <li className="flex items-center space-x-2 px-4 py-3">
+              <BookmarkIcon className="w-6 h-6" />
+              <p>Bookmarks</p>
+            </li>
+          </Link>
+
+          <Link href="/">
+            <li className="flex items-center space-x-2 px-4 py-3">
+              <CollectionIcon className="w-6 h-6" />
+              <p>Lists</p>
+            </li>
+          </Link>
         </ul>
+        {/* <div onClick={handleNav} className="md:hidden cursor-pointer">
+          <AiOutlineMenu size={25} />
+        </div> */}
       </div>
     </div>
   );
