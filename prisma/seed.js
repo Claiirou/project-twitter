@@ -10,7 +10,10 @@ async function seed() {
   });
 
   await db.tweet.createMany({
-    data: [{ pseudo: "Martine", tweet: "Hello ça boume ?" }],
+    data: [
+      { pseudo: "Martine", content: "Hello ça boume ?" },
+      { pseudo: "Martin", content: "Youplaboum" },
+    ],
   });
 }
 
