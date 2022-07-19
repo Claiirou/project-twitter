@@ -1,8 +1,13 @@
 import base from "../../../middlewares/common";
-import { findAllUsers } from "../../../models/user";
+import { createUser, findAllUsers } from "../../../models/user";
 
 async function handleGetUsers(req, res) {
   res.send(await findAllUsers());
 }
 
-export default base().get(handleGetUsers);
+async function handlePostUser(req, res) {
+  const { pseudo, email, picture } = req.body;
+  return res.status(201).send(await createUser({ pseudo, email, picture }));
+}
+
+export default base().get(handleGetUsers).post(handlePostUser);
