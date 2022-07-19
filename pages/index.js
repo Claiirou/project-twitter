@@ -1,15 +1,12 @@
-import Head from "next/head";
-import Sidebar from "../components/Sidebar";
+import Layout from "../components/Layout";
+import style from "../styles/home.module.css";
 
 export default function Home() {
   return (
-    <div>
-      <Head>
-        <title>Bienvenue sur le Twitter Lunaire</title>
-        <meta name="description" content="Twitter Bis" />
-        <link rel="icon" href="/lune2.png" />
-      </Head>
-      <Sidebar />
-    </div>
+    <Layout pageTitle="Bienvenue sur le Twitter Lunaire">
+      <div className="mt-20%">
+        <h1 className={style.title}>Twitter Lunaire</h1>
+      </div>
+    </Layout>
   );
 }
