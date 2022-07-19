@@ -18,7 +18,7 @@ module.exports.searchUser = () => {
     .catch(() => null);
 };
 
-modules.exports.findAllUsers = () => {
+module.exports.findAllUsers = () => {
   return db.user.findMany();
 };
 

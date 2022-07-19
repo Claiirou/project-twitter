@@ -1,7 +1,7 @@
 const db = require("../db");
 
 async function seed() {
-  const martine = await db.user.create({
+  await db.user.create({
     data: {
       pseudo: "Martine",
       email: "matine@lune.com",
@@ -9,12 +9,12 @@ async function seed() {
     },
   });
 
-  await db.tweet.createMany({
-    data: [
-      { pseudo: "Martine", content: "Hello ça boume ?" },
-      { pseudo: "Martin", content: "Youplaboum" },
-    ],
-  });
+  // await db.tweet.createMany({
+  //   data: [
+  //     { pseudo: "Martine", content: "Hello ça boume ?" },
+  //     { pseudo: "Martin", content: "Youplaboum" },
+  //   ],
+  // });
 }
 
 seed();
