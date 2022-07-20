@@ -11,7 +11,7 @@ async function handleDeleteOneUser(req, res) {
   return res.status(204).send();
 }
 
-async function handlePatch(req, res) {
+async function handlePatchUser(req, res) {
   const userToPatch = await patchOneUser(req.query.id, req.body);
   return res.status(201).send(userToPatch);
 }
@@ -19,4 +19,4 @@ async function handlePatch(req, res) {
 export default base()
   .get(handleGetOneUser)
   .delete(handleDeleteOneUser)
-  .patch(handlePatch);
+  .patch(handlePatchUser);

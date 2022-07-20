@@ -1,7 +1,7 @@
 const db = require("../db");
 
 module.exports.createTweet = ({ content, date, userId }) => {
-  return db.tweet.create({ date: { content, date, userId } });
+  return db.tweet.create({ data: { content, date, userId } });
 };
 
 module.exports.findAllTweets = () => {
