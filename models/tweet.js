@@ -5,18 +5,7 @@ module.exports.createTweet = ({ content, date, userId }) => {
 };
 
 module.exports.findAllTweets = () => {
-  return db.tweet
-    .findMany({
-      include: {
-        user: {
-          select: {
-            pseudo: true,
-            picture: true,
-          },
-        },
-      },
-    })
-    .catch(() => null);
+  return db.tweet.findMany().catch(() => null);
 };
 
 module.exports.getOneTweet = async (id) => {
