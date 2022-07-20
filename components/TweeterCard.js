@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 
 function TweeterCard({ tweet }) {
   return (
@@ -12,7 +13,9 @@ function TweeterCard({ tweet }) {
       <div className="flex flex-1 flex-col">
         <div className="flex flex-1 items-center pl-2 space-x-5">
           <div>{tweet.pseudo}</div>
-          {/* <div className="opacity-50">{tweet.date}||{moment(tweet.post_date).format("DD-MM-YYYY")}</div> */}
+          <div className="opacity-50">
+            {tweet.date || moment(tweet.post_date).format("MMM Do YY")}
+          </div>
         </div>
         <div>{tweet.content}</div>
       </div>
