@@ -1,12 +1,13 @@
 import React from "react";
 
-function TweeterCard({ pseudo, content, picture }) {
+function TweeterCard({ tweet }) {
   return (
     <div>
-      <div>{picture}</div>
+      <div>{tweet.user.picture}</div>
       <div>
-        <div>{pseudo}</div>
-        <div>{content}</div>
+        <div>{tweet.user.pseudo}</div>
+        <div>{tweet.date}</div>
+        <div>{tweet.content}</div>
       </div>
     </div>
   );

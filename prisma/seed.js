@@ -14,12 +14,12 @@ async function seed() {
       {
         userId: martine.id,
         content: "Hello ça boume ?",
-        date: new Date("2053-02-29T00:00:00"),
+        date: new Date("2053-02-29"),
       },
       {
         userId: martine.id,
         content: "Youplaboum",
-        date: new Date("2053-04-32T00:00:00"),
+        date: new Date("2053-04-32"),
       },
     ],
   });

@@ -4,8 +4,23 @@ module.exports.createTweet = ({ content, date, userId }) => {
   return db.tweet.create({ data: { content, date, userId } });
 };
 
+// module.exports.findAllTweets = () => {
+//   return db.tweet.findMany().catch(() => null);
+// };
+
 module.exports.findAllTweets = () => {
-  return db.tweet.findMany().catch(() => null);
+  return db.tweet
+    .findMany({
+      include: {
+        user: {
+          select: {
+            pseudo: true,
+            picture: true,
+          },
+        },
+      },
+    })
+    .catch(() => null);
 };
 
 module.exports.getOneTweet = async (id) => {
