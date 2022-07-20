@@ -2,14 +2,14 @@ import axios from "axios";
 import React, { useState } from "react";
 
 function TweetBox() {
-  // const [pseudo, setPseudo] = useState("");
+  const [pseudo, setPseudo] = useState("");
   const [content, setContent] = useState("");
 
   const handleSubmit = (e) => {
     e.prevent.default();
     axios
       .post("/api/tweet", {
-        // userId: pseudo,
+        userId: pseudo,
         content,
         // date,
       })
@@ -35,8 +35,8 @@ function TweetBox() {
               className="h-24 w-1/4 text-xl text-black outline-none placeholder:text-xl"
               type="text"
               placeholder="Pseudo ?"
-              // value={pseudo}
-              // onChange={(e) => setPseudo(e.target.value)}
+              value={pseudo}
+              onChange={(e) => setPseudo(e.target.value)}
             ></input>
             <input
               className="h-24 w-full text-xl text-black outline-none placeholder:text-xl"
