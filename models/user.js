@@ -4,7 +4,7 @@ module.exports.createUser = ({ pseudo, email, picture }) => {
   return db.user.create({ data: { pseudo, email, picture } });
 };
 
-module.exports.searchUser = () => {
+module.exports.searchUser = ({ search }) => {
   return db.user
     .findMany({
       include: {
@@ -14,6 +14,7 @@ module.exports.searchUser = () => {
           },
         },
       },
+      where: { pseudo: { contains: search } },
     })
     .catch(() => null);
 };
