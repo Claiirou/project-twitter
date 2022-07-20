@@ -6,7 +6,7 @@ import {
   CollectionIcon,
   // DotsCircleHorizontalIcon,
   MailIcon,
-  // UserIcon,
+  UserIcon,
   HomeIcon,
 } from "@heroicons/react/outline";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
@@ -62,8 +62,8 @@ const Sidebar = () => {
 
             <Link href="/">
               <li className="flex items-center space-x-2 px-4 py-3">
-                <CollectionIcon className="w-6 h-6" />
-                <p>Lists</p>
+                <UserIcon className="w-6 h-6" />
+                <p>Profil</p>
               </li>
             </Link>
           </ul>
