@@ -1,6 +1,26 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 
 function TweetBox() {
+  // const [pseudo, setPseudo] = useState("");
+  const [content, setContent] = useState("");
+
+  const handleSubmit = (e) => {
+    e.prevent.default();
+    axios
+      .post("/api/tweet", {
+        // userId: pseudo,
+        content,
+        // date,
+      })
+      .then(() => {
+        setPseudo(""), setContent("");
+      })
+      .catch((err) => {
+        console.error(err);
+      }, []);
+  };
+
   return (
     <div className="flex  space-x-2 p-5 bg-white rounded-3xl mt-2 mx-12 md:mx-32">
       <img
@@ -9,17 +29,21 @@ function TweetBox() {
         alt="avatar"
       />
       <div className="flex flex-1 items-center pl-2">
-        <form className="flex flex-1 flex-col">
+        <form className="flex flex-1 flex-col" onSubmit={handleSubmit}>
           <div className="flex">
             <input
               className="h-24 w-1/4 text-xl text-black outline-none placeholder:text-xl"
               type="text"
               placeholder="Pseudo ?"
+              // value={pseudo}
+              // onChange={(e) => setPseudo(e.target.value)}
             ></input>
             <input
               className="h-24 w-full text-xl text-black outline-none placeholder:text-xl"
               type="text"
               placeholder="What's up today ?"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
             ></input>
           </div>
 
