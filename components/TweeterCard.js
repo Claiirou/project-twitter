@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import { PencilIcon, TrashIcon } from "@heroicons/react/outline";
 
 function TweeterCard({ tweet }) {
   return (
@@ -18,6 +19,10 @@ function TweeterCard({ tweet }) {
           </div>
         </div>
         <div>{tweet.content}</div>
+        <div className="flex space-x-2 mt-2">
+          <PencilIcon className="h-5 w-5" />
+          <TrashIcon className="h-5 w-5" />
+        </div>
       </div>
     </div>
   );

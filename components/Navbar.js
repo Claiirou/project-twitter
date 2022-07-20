@@ -4,7 +4,6 @@ import {
   HashtagIcon,
   BookmarkIcon,
   CollectionIcon,
-  // DotsCircleHorizontalIcon,
   MailIcon,
   UserIcon,
   HomeIcon,
