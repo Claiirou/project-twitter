@@ -6,8 +6,10 @@ async function handleGetTweets(req, res) {
 }
 
 async function handlePostTweet(req, res) {
-  const { content, date, userId } = req.body;
-  return res.status(201).send(await createTweet({ content, date, userId }));
+  const { pseudo, picture, content, date } = req.body;
+  return res
+    .status(201)
+    .send(await createTweet({ pseudo, picture, content, date }));
 }
 
 export default base().get(handleGetTweets).post(handlePostTweet);

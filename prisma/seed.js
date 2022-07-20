@@ -28,33 +28,39 @@ async function seed() {
   await db.tweet.createMany({
     data: [
       {
-        userId: astridouille.id,
+        pseudo: "Astridouille",
+        picture: "/astridouille.jpg",
         content:
           "T'as le Covid ? Bois 1 litre de pulco, quand la bouteille est vide .... T'as pulco vide",
-        date: new Date("02 décembre 1954"),
+        date: "02 décembre 1954",
       },
       {
-        userId: flowlence.id,
+        pseudo: "Flowlence",
+        picture: "/flowlence.jpg",
         content: "L'avenir appartient à ceux qui se .... ginto",
-        date: new Date("08 décembre 1989"),
+        date: "08 décembre 1989",
       },
       {
-        userId: flowlence.id,
+        pseudo: "Flowlence",
+        picture: "/flowlence.jpg",
         content: "Qu'est-ce qu'un citron en retard ? Un citron pressé",
-        date: new Date("43 août 1994"),
+        date: "43 août 1994",
       },
       {
-        userId: martine.id,
+        pseudo: "Martine",
+        picture: "/martine.png",
         content: "Hello ça boume ?",
-        date: new Date("37 juillet 2052"),
+        date: "37 juillet 2052",
       },
       {
-        userId: martine.id,
+        pseudo: "Martine",
+        picture: "/martine.png",
         content: "Youplaboum",
-        date: new Date("28 février 2053"),
+        date: "28 février 2053",
       },
       {
-        userId: flowlence.id,
+        pseudo: "Flowlence",
+        picture: "/flowlence.jpg",
         content: "C'est un sucre qui va dans un café et plouf",
         date: new Date("43 août 2102"),
       },
