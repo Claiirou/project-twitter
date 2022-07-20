@@ -1,13 +1,15 @@
 import React from "react";
 import moment from "moment";
 import axios from "axios";
+import { useRouter } from "next/router";
 import { PencilIcon, TrashIcon } from "@heroicons/react/outline";
 
 function TweeterCard({ tweet }) {
   const id = tweet.id;
+  const router = useRouter();
 
   const handleDelete = async () => {
-    return await axios.delete(`/api/tweet/${id}`).then(() => router.push("/"));
+    await axios.delete(`/api/tweet/${id}`).then(() => router.push("/"));
   };
   return (
     <>

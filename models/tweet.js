@@ -17,7 +17,12 @@ module.exports.getOneTweet = async (id) => {
 module.exports.patchOneTweet = async (id, data) => {
   return await db.tweet.update({
     where: { id: parseInt(id, 10) },
-    data: { content: data.content, date: data.date, userId: data.userId },
+    data: {
+      content: data.content,
+      date: data.date,
+      pseudo: data.pseudo,
+      picture: data.picture,
+    },
   });
 };
 

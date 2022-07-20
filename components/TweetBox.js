@@ -6,12 +6,11 @@ function TweetBox() {
   const [content, setContent] = useState("");
 
   const handleSubmit = (e) => {
-    e.prevent.default();
+    e.preventDefault();
     axios
       .post("/api/tweet", {
-        userId: pseudo,
+        pseudo,
         content,
-        // date,
       })
       .then(() => {
         setPseudo(""), setContent("");
