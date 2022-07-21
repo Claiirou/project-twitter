@@ -66,6 +66,31 @@ async function seed() {
       },
     ],
   });
+
+  await db.hashtag.createMany({
+    data: [
+      {
+        hashtag: "#PoleDance",
+        number: "67,2k Tweets",
+      },
+      {
+        hashtag: "#Apero",
+        number: "2,3m Tweets",
+      },
+      {
+        hashtag: "#OuEstNico",
+        number: "213 Tweets",
+      },
+      {
+        hashtag: "#HarryPouetPouet",
+        number: "10,4k Tweets",
+      },
+      {
+        hashtag: "#WildCodeSchool",
+        number: "2 319 Tweets",
+      },
+    ],
+  });
 }
 
 seed();

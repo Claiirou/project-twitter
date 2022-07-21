@@ -33,13 +33,13 @@ const Sidebar = () => {
               <li className="flex items-center space-x-2 px-4 py-3">
                 {" "}
                 <HomeIcon className="w-6 h-6" />
-                <p>Home</p>
+                <p>Accueil</p>
               </li>
             </Link>
             <Link href="/explore">
               <li className="flex items-center space-x-2 px-4 py-3">
                 <HashtagIcon className="w-6 h-6" />
-                <p>Explore</p>
+                <p>Explorer</p>
               </li>
             </Link>
             <Link href="/">
@@ -58,7 +58,7 @@ const Sidebar = () => {
             <Link href="/">
               <li className="flex items-center space-x-2 px-4 py-3">
                 <BookmarkIcon className="w-6 h-6" />
-                <p>Bookmarks</p>
+                <p>Signets</p>
               </li>
             </Link>
 
