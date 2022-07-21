@@ -4,9 +4,12 @@ import TweeterCard from "./TweeterCard";
 
 function Feed() {
   const [tweet, setTweet] = useState([]);
+  const fetchTweet = () => {
+    axios.get("/api/tweet").then((res) => setTweet(res.data));
+  };
 
   useEffect(() => {
-    axios.get("/api/tweet").then((res) => setTweet(res.data));
+    fetchTweet();
   }, []);
 
   return (

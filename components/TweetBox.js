@@ -5,7 +5,7 @@ import useSound from "use-sound";
 function TweetBox() {
   const [pseudo, setPseudo] = useState("");
   const [content, setContent] = useState("");
-  const [play] = useSound("/bol.mp3");
+  const [play] = useSound("/okay.mp3");
 
   const handleSubmit = (e) => {
     e.preventDefault();
