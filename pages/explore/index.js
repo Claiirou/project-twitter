@@ -1,12 +1,14 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import TweeterCard from "../../components/TweeterCard";
 import { SearchIcon } from "@heroicons/react/outline";
 import Layout from "../../components/Layout";
+import Hashtag from "../../components/Hashtag";
 
 const Index = () => {
   const [searchValue, setSearchValue] = useState("");
+  const [hashtag, setHashtag] = useState([]);
   const { data: tweet = [] } = useQuery(
     ["home", { search: searchValue }],
     () => {
@@ -15,6 +17,11 @@ const Index = () => {
         .then((res) => res.data);
     }
   );
+
+  useEffect(() => {
+    axios.get("/api/hashtag").then((res) => console.log(res.data));
+  }, []);
+
   return (
     <Layout>
       {searchValue ? (
@@ -49,7 +56,11 @@ const Index = () => {
           </div>
         </div>
       )}
-      <div></div>
+      <div>
+        {hashtag.map((banana) => (
+          <Hashtag key={banana.id} hashtag={banana} />
+        ))}
+      </div>
     </Layout>
   );
 };
