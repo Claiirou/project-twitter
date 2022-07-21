@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import moment from "moment";
 import axios from "axios";
 
@@ -33,10 +33,14 @@ function TweeterCard({ tweet }) {
         content: tweetBanana.content,
       })
       .then(() => modify())
-      .then(() => !isActive)
-      .then(() => router.push("/"))
+      .then(() => setIsActive(false))
+      .then(() => queryClient.invalidateQueries("home"))
       .catch(console.error);
   };
+
+  useEffect(() => {
+    setTweetBanana(tweet);
+  }, [tweet]);
 
   return (
     <>
@@ -62,9 +66,9 @@ function TweeterCard({ tweet }) {
               <input
                 className="h-8 p-1.5 rounded-full w-full text-l text-black outline-none"
                 type="text"
-                value={tweet.content || ""}
+                value={tweetBanana.content || ""}
                 onChange={(e) =>
-                  setTweetBanana({ ...tweetBanana, content: e.target.value })
+                  setTweetBanana({ ...tweet, content: e.target.value })
                 }
               />
             ) : (
