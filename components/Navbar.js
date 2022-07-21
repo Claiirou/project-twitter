@@ -42,7 +42,7 @@ const Sidebar = () => {
                 <p>Explorer</p>
               </li>
             </Link>
-            <Link href="/">
+            <Link href="/notifications">
               <li className="flex items-center space-x-2 px-4 py-3">
                 <BellIcon className="w-6 h-6" />
                 <p>Notifications</p>

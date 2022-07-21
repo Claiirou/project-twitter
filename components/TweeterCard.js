@@ -99,13 +99,3 @@ function TweeterCard({ tweet }) {
 }
 
 export default TweeterCard;
-
-{
-  /* <input
-              className="h-24 w-full text-xl text-black outline-none placeholder:text-xl"
-              type="text"
-              placeholder="What's up today ?"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-            ></input> */
-}

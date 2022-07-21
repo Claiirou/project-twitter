@@ -19,7 +19,7 @@ const Index = () => {
   );
 
   useEffect(() => {
-    axios.get("/api/hashtag").then((res) => console.log(res.data));
+    axios.get("/api/hashtag").then((res) => setHashtag(res.data));
   }, []);
 
   return (
@@ -56,10 +56,13 @@ const Index = () => {
           </div>
         </div>
       )}
-      <div>
-        {hashtag.map((banana) => (
-          <Hashtag key={banana.id} hashtag={banana} />
-        ))}
+      <div className="flex flex-1 flex-col">
+        <h2 className="text-xl text-center">Tendances pour Vous !</h2>
+        <div>
+          {hashtag.map((banana) => (
+            <Hashtag key={banana.id} hashtag={banana} />
+          ))}
+        </div>
       </div>
     </Layout>
   );
