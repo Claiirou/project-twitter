@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
-// import TweeterCard from "./TweeterCard";
+import TweeterCard from "../../components/TweeterCard";
 import { SearchIcon } from "@heroicons/react/outline";
 import Layout from "../../components/Layout";
 
@@ -17,23 +17,38 @@ const Index = () => {
   );
   return (
     <Layout>
-      <div className="mt-2 mx-12 md:mx-32">
-        {/* <div>
-        {tweet.map((tweetBanana) => (
-          <TweeterCard key={tweetBanana.id} tweet={tweetBanana} />
-        ))}
-      </div> */}
-        <div className=" mt-2 flex items center space-x-2 rounded full bg-gray-100 p-3">
-          <SearchIcon className="h-5 w-5 text-gray-400" />
-          <input
-            className="flex-1 bg-transparent outline-none"
-            type="text"
-            placeholder="Recherche Twitter Lunaire"
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-          />
+      {searchValue ? (
+        <div className="mt-2 mx-12 md:mx-32">
+          <div className=" mt-2 flex items center space-x-2 rounded full bg-gray-100 p-3">
+            <SearchIcon className="h-5 w-5 text-gray-400" />
+            <input
+              className="flex-1 bg-transparent outline-none text-black"
+              type="text"
+              placeholder="Recherche Twitter Lunaire"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+          </div>
+          <div>
+            {tweet.map((tweetBanana) => (
+              <TweeterCard key={tweetBanana.id} tweet={tweetBanana} />
+            ))}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="mt-4 mx-12 md:mx-32">
+          <div className=" mt-2 flex items center space-x-2 rounded full bg-gray-100 p-3">
+            <SearchIcon className="h-5 w-5 text-gray-400" />
+            <input
+              className="flex-1 bg-transparent outline-none"
+              type="text"
+              placeholder="Recherche Twitter Lunaire"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+          </div>
+        </div>
+      )}
     </Layout>
   );
 };
