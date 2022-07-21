@@ -11,10 +11,14 @@ datasource db {
 }
 
 model User {
-  id      Int     @id @default(autoincrement())
-  pseudo  String  @db.VarChar(255)
-  email   String? @db.VarChar(255)
-  picture String? @db.VarChar(255)
+  id          Int     @id @default(autoincrement())
+  pseudo      String  @db.VarChar(255)
+  email       String? @db.VarChar(255)
+  picture     String? @db.VarChar(255)
+  time        String? @db.VarChar(255)
+  hobbies     String?
+  abonnements Int
+  abonnes     Int
 }
 
 model Tweet {

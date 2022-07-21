@@ -6,6 +6,10 @@ async function seed() {
       pseudo: "Martine",
       email: "matine@lune.com",
       picture: "/martine.png",
+      time: "A rejoint Twitter Lunaire en mai 2067",
+      hobbies: "Apero",
+      abonnements: 56,
+      abonnes: 7,
     },
   });
 
@@ -14,6 +18,10 @@ async function seed() {
       pseudo: "Flowlence",
       email: "flowlence@lune.com",
       picture: "/flowlence.jpg",
+      time: "A rejoint Twitter Lunaire en novembre 2202",
+      hobbies: "Gin, Blagues",
+      abonnements: 230,
+      abonnes: 159,
     },
   });
 
@@ -22,6 +30,22 @@ async function seed() {
       pseudo: "Astridouille",
       email: "astridouille@lune.com",
       picture: "/astridouille.jpg",
+      time: "A rejoint Twitter Lunaire en décembre 1932",
+      hobbies: "Apero Roller Sport",
+      abonnements: 456,
+      abonnes: 789,
+    },
+  });
+
+  const cunegonde = await db.user.create({
+    data: {
+      pseudo: "Cunégonde",
+      email: "cunegonde@lune.com",
+      picture: "/astridouille.jpg",
+      time: "A rejoint Twitter Lunaire en février 2022",
+      hobbies: "Apero PoleDance",
+      abonnements: 652,
+      abonnes: 1230,
     },
   });
 
@@ -57,6 +81,12 @@ async function seed() {
         picture: "/martine.png",
         content: "Youplaboum",
         date: "28 février 2053",
+      },
+      {
+        pseudo: "Cunégonde",
+        picture: "/cunegonde.jpg",
+        content: "La Canicule n'est pas une pratique sexuelle chez les canards",
+        date: "11 août 2089",
       },
       {
         pseudo: "Flowlence",
