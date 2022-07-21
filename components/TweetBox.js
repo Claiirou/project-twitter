@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
+import useSound from "use-sound";
 
 function TweetBox() {
   const [pseudo, setPseudo] = useState("");
   const [content, setContent] = useState("");
+  const [play] = useSound("/bol.mp3");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,7 +16,9 @@ function TweetBox() {
       })
       .then(() => {
         setPseudo(""), setContent("");
+        play();
       })
+
       .catch((err) => {
         console.error(err);
       }, []);
