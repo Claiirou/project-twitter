@@ -11,7 +11,7 @@ function Feed() {
     () => {
       return axios
         .get(`/api/tweet?search=${searchValue}`)
-        .then((res) => setTweet(res.data));
+        .then((res) => res.data);
     }
   );
 

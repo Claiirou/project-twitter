@@ -2,7 +2,7 @@ import base from "../../../middlewares/common";
 import { createTweet, findAllTweets } from "../../../models/tweet";
 
 async function handleGetTweets(req, res) {
-  res.send(await findAllTweets());
+  res.send(await findAllTweets({ search: req.query.search }));
 }
 
 async function handlePostTweet(req, res) {
