@@ -3,7 +3,7 @@ import Layout from "../../components/Layout";
 
 const index = () => {
   return (
-    <Layout pageTitle="Notifications du Tweet Lunaire">
+    <Layout pageTitle="Profil du Tweet Lunaire">
       <div className="flex flex-col items-center">
         <img
           className="flex my-32 h-80 w-80 transition-all duration-500 ease-out hover:rotate-180 active:scale-125"

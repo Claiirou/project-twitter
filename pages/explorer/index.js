@@ -5,6 +5,7 @@ import TweeterCard from "../../components/TweeterCard";
 import { SearchIcon } from "@heroicons/react/outline";
 import Layout from "../../components/Layout";
 import Hashtag from "../../components/Hashtag";
+import useSound from "use-sound";
 
 const Index = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -22,8 +23,15 @@ const Index = () => {
     axios.get("/api/hashtag").then((res) => setHashtag(res.data));
   }, []);
 
+  const [play] = useSound("/starwars.mp3");
+
+  const handleSearch = (e) => {
+    setSearchValue(e.target.value);
+    play();
+  };
+
   return (
-    <Layout>
+    <Layout pageTitle="Exploration sur le Tweet Lunaire">
       {searchValue ? (
         <div className="mt-2 mx-12 md:mx-32">
           <div className=" mt-2 flex items center space-x-2 rounded full bg-gray-100 p-3">
@@ -51,7 +59,7 @@ const Index = () => {
               type="text"
               placeholder="Recherche Twitter Lunaire"
               value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
+              onChange={handleSearch}
             />
           </div>
         </div>

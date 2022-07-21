@@ -48,21 +48,21 @@ const Sidebar = () => {
                 <p>Notifications</p>
               </li>
             </Link>
-            <Link href="/">
+            <Link href="/messages">
               <li className="flex items-center space-x-2 px-4 py-3">
                 <MailIcon className="w-6 h-6" />
                 <p>Messages</p>
               </li>
             </Link>
 
-            <Link href="/">
+            <Link href="/signets">
               <li className="flex items-center space-x-2 px-4 py-3">
                 <BookmarkIcon className="w-6 h-6" />
                 <p>Signets</p>
               </li>
             </Link>
 
-            <Link href="/">
+            <Link href="/profil">
               <li className="flex items-center space-x-2 px-4 py-3">
                 <UserIcon className="w-6 h-6" />
                 <p>Profil</p>
