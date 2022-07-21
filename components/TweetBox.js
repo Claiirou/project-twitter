@@ -18,7 +18,6 @@ function TweetBox() {
         setPseudo(""), setContent("");
         play();
       })
-
       .catch((err) => {
         console.error(err);
       }, []);

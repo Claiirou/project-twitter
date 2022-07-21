@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import moment from "moment";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { PencilIcon, TrashIcon } from "@heroicons/react/outline";
+import { PencilIcon, TrashIcon, CheckIcon } from "@heroicons/react/outline";
 import PopUp from "./PopUp";
 import useSound from "use-sound";
 
@@ -10,7 +10,10 @@ function TweeterCard({ tweet }) {
   const id = tweet.id;
   const router = useRouter();
   const [play] = useSound("/delete.mp3");
+  const [modify] = useSound("/stash.mp3");
   const [deleteContainer, setDeleteContainer] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+  const [tweetBanana, setTweetBanana] = useState("");
 
   const handleDelete = async () => {
     await axios
@@ -20,6 +23,19 @@ function TweeterCard({ tweet }) {
       .then(() => router.push("/"))
       .catch((err) => console.error(err.response.status));
   };
+
+  const handlePatch = async (e) => {
+    e.preventDefault();
+    await axios
+      .patch(`/api/tweet/${id}`, {
+        content: tweetBanana.content,
+      })
+      .then(() => modify())
+      .then(() => !isActive)
+      .then(() => router.push("/"))
+      .catch(console.error);
+  };
+
   return (
     <>
       {deleteContainer ? <PopUp handleDelete={handleDelete} /> : null}
@@ -38,13 +54,37 @@ function TweeterCard({ tweet }) {
               {tweet.date || moment(tweet.post_date).format("MMM Do YY")}
             </div>
           </div>
-          <div>{tweet.content}</div>
+          <div>
+            {" "}
+            {isActive ? (
+              <input
+                className="h-8 p-1.5 rounded-full w-full text-l text-black outline-none"
+                type="text"
+                value={tweet.content || ""}
+                onChange={(e) =>
+                  setTweetBanana({ ...tweetBanana, content: e.target.value })
+                }
+              />
+            ) : (
+              tweet.content
+            )}
+          </div>
           <div className="flex space-x-2 mt-2">
-            <PencilIcon className="h-5 w-5 cursor-pointer" />
-            <TrashIcon
-              onClick={() => setDeleteContainer(!deleteContainer)}
+            <PencilIcon
+              onClick={() => setIsActive(!isActive)}
               className="h-5 w-5 cursor-pointer"
             />
+            {isActive ? (
+              <CheckIcon
+                onClick={handlePatch}
+                className="h-5 w-5 cursor-pointer"
+              />
+            ) : (
+              <TrashIcon
+                onClick={() => setDeleteContainer(!deleteContainer)}
+                className="h-5 w-5 cursor-pointer"
+              />
+            )}
           </div>
         </div>
       </div>
@@ -53,3 +93,13 @@ function TweeterCard({ tweet }) {
 }
 
 export default TweeterCard;
+
+{
+  /* <input
+              className="h-24 w-full text-xl text-black outline-none placeholder:text-xl"
+              type="text"
+              placeholder="What's up today ?"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+            ></input> */
+}
