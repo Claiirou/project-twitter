@@ -29,7 +29,7 @@ async function seed() {
     data: {
       pseudo: "Astridouille",
       email: "astridouille@lune.com",
-      picture: "/astridouille.jpg",
+      picture: "/astride.jpg",
       time: "A rejoint Twitter Lunaire en décembre 1932",
       hobbies: "Apero Roller Sport",
       abonnements: 456,
@@ -41,7 +41,7 @@ async function seed() {
     data: {
       pseudo: "Cunégonde",
       email: "cunegonde@lune.com",
-      picture: "/astridouille.jpg",
+      picture: "/cunegonde.jpg",
       time: "A rejoint Twitter Lunaire en février 2022",
       hobbies: "Apero PoleDance",
       abonnements: 652,
@@ -53,7 +53,7 @@ async function seed() {
     data: [
       {
         pseudo: "Astridouille",
-        picture: "/astridouille.jpg",
+        picture: "/astride.jpg",
         content:
           "T'as le Covid ? Bois 1 litre de pulco, quand la bouteille est vide .... T'as pulco vide",
         date: "02 décembre 1954",

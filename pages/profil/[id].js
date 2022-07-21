@@ -1,7 +1,16 @@
-import React from "react";
+// import React, { useState } from "react";
+// import UserCard from "../../components/UserCard";
 
-function UserCardDetail() {
-  return <div>[id]</div>;
-}
+// function UserCardDetail() {
+//   const [userCard, setUserCard] = useState([]);
 
-export default UserCardDetail;
+//   return (
+//     <div>
+//       {userCard.map((userBanana) => (
+//         <UserCard key={userBanana.id} userCard={userBanana} />
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default UserCardDetail;

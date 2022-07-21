@@ -1,9 +1,7 @@
 import React from "react";
 
-import { useParams } from "react-router-dom";
-
 function UserCard() {
-  const [userId, setuserId] = useState([]);
+  const [userId, setUserId] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
@@ -14,7 +12,15 @@ function UserCard() {
   return (
     <>
       <div>
+        <div>
+          <img src={userId.picture} alt="profil picture" />
+        </div>
         <div>{userId.pseudo}</div>
+        <div>{userId.email}</div>
+        <div>{userId.time}</div>
+        <div>{userId.hobbies}</div>
+        <div>{userId.abonnements}</div>
+        <div>{userId.abonnes}</div>
       </div>
     </>
   );
