@@ -56,7 +56,7 @@ function TweeterCard({ tweet }) {
         <div className="flex flex-1 flex-col">
           <div className="flex flex-1 items-center pl-2 space-x-5">
             <div>{tweet.pseudo}</div>
-            <div className="opacity-50">
+            <div className="opacity-50 text-xs md:text-base">
               {tweet.date || moment(tweet.post_date).format("MMM Do YY")}
             </div>
           </div>
