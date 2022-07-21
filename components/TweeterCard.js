@@ -1,26 +1,28 @@
 import React, { useState } from "react";
 import moment from "moment";
 import axios from "axios";
-import { useRouter } from "next/router";
+
 import { PencilIcon, TrashIcon, CheckIcon } from "@heroicons/react/outline";
 import PopUp from "./PopUp";
 import useSound from "use-sound";
+import { useQueryClient } from "react-query";
 
 function TweeterCard({ tweet }) {
   const id = tweet.id;
-  const router = useRouter();
+
   const [play] = useSound("/delete.mp3");
   const [modify] = useSound("/stash.mp3");
   const [deleteContainer, setDeleteContainer] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [tweetBanana, setTweetBanana] = useState("");
+  const queryClient = useQueryClient();
 
   const handleDelete = async () => {
     await axios
       .delete(`/api/tweet/${id}`)
       .then(() => play())
       .then(() => setDeleteContainer(!deleteContainer))
-      .then(() => router.push("/"))
+      .then(() => queryClient.invalidateQueries("home"))
       .catch((err) => console.error(err.response.status));
   };
 
