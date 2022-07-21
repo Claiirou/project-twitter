@@ -36,7 +36,7 @@ const Sidebar = () => {
                 <p>Accueil</p>
               </li>
             </Link>
-            <Link href="/explore">
+            <Link href="/explorer">
               <li className="flex items-center space-x-2 px-4 py-3">
                 <HashtagIcon className="w-6 h-6" />
                 <p>Explorer</p>

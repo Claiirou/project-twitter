@@ -57,8 +57,8 @@ const Index = () => {
         </div>
       )}
       <div className="flex flex-1 flex-col">
-        <h2 className="text-xl text-center">Tendances pour Vous !</h2>
-        <div>
+        <h2 className="text-3xl my-8 text-center">Tendances pour Vous !</h2>
+        <div className="">
           {hashtag.map((banana) => (
             <Hashtag key={banana.id} hashtag={banana} />
           ))}
