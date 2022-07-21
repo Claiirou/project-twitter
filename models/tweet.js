@@ -4,8 +4,12 @@ module.exports.createTweet = ({ pseudo, picture, content, date }) => {
   return db.tweet.create({ data: { pseudo, picture, content, date } });
 };
 
-module.exports.findAllTweets = () => {
-  return db.tweet.findMany().catch(() => null);
+module.exports.findAllTweets = ({ search }) => {
+  return db.tweet
+    .findMany({
+      where: { pseudo: { contains: search } },
+    })
+    .catch(() => null);
 };
 
 module.exports.getOneTweet = async (id) => {

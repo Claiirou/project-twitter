@@ -1,16 +1,19 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useQuery } from "react-query";
 import TweeterCard from "./TweeterCard";
+import { SearchIcon } from "@heroicons/react/outline";
 
 function Feed() {
-  const [tweet, setTweet] = useState([]);
-  const fetchTweet = () => {
-    axios.get("/api/tweet").then((res) => setTweet(res.data));
-  };
-
-  useEffect(() => {
-    fetchTweet();
-  }, []);
+  const [searchValue, setSearchValue] = useState("");
+  const { data: tweet = [] } = useQuery(
+    ["home", { search: searchValue }],
+    () => {
+      return axios
+        .get(`/api/tweet?search=${searchValue}`)
+        .then((res) => setTweet(res.data));
+    }
+  );
 
   return (
     <div className="mt-2 mx-12 md:mx-32">
@@ -19,8 +22,26 @@ function Feed() {
           <TweeterCard key={tweetBanana.id} tweet={tweetBanana} />
         ))}
       </div>
+      <div className="mt-2 flex items center space-x-2 rounded full bg-gray-100 p-3">
+        <SearchIcon className="h-5 w-5 text-gray-400" />
+        <input
+          className="flex-1 bg-transparent outline-none"
+          type="text"
+          placeholder="Recherche Twitter Lunaire"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+      </div>
     </div>
   );
 }
 
 export default Feed;
+
+// function Feed() {
+//   const { data: tweets = [] } = useQuery(
+//     ["home", { search: searchValue }],
+//     () => {
+//       return axios.get("/api/tweet").then((res) => setTweet(res.data));
+//     }
+//   );

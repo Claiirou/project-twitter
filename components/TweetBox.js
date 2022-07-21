@@ -1,11 +1,13 @@
 import axios from "axios";
 import React, { useState } from "react";
 import useSound from "use-sound";
+import { useQueryClient } from "react-query";
 
 function TweetBox() {
   const [pseudo, setPseudo] = useState("");
   const [content, setContent] = useState("");
   const [play] = useSound("/okay.mp3");
+  const queryClient = useQueryClient();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,6 +20,7 @@ function TweetBox() {
         setPseudo(""), setContent("");
         play();
       })
+      .then(() => queryClient.invalidateQueries("home"))
       .catch((err) => {
         console.error(err);
       }, []);
