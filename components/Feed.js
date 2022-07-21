@@ -22,7 +22,7 @@ function Feed() {
           <TweeterCard key={tweetBanana.id} tweet={tweetBanana} />
         ))}
       </div>
-      <div className="mt-2 flex items center space-x-2 rounded full bg-gray-100 p-3">
+      <div className=" hidden mt-2 flex items center space-x-2 rounded full bg-gray-100 p-3">
         <SearchIcon className="h-5 w-5 text-gray-400" />
         <input
           className="flex-1 bg-transparent outline-none"
@@ -37,11 +37,3 @@ function Feed() {
 }
 
 export default Feed;
-
-// function Feed() {
-//   const { data: tweets = [] } = useQuery(
-//     ["home", { search: searchValue }],
-//     () => {
-//       return axios.get("/api/tweet").then((res) => setTweet(res.data));
-//     }
-//   );

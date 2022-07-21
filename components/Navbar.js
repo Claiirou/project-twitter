@@ -21,9 +21,12 @@ const Sidebar = () => {
   return (
     <div className="flex justify-between w-full h-20 shadow-xl z-[100]">
       <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
-        <div className="w-10 h-10">
-          <img src="/lune.png" alt="logo" />
-        </div>
+        <Link href="/">
+          <div className="w-10 h-10 cursor-pointer">
+            <img src="/lune.png" alt="logo" />
+          </div>
+        </Link>
+
         <div>
           <ul className="hidden md:flex">
             <Link href="/">
@@ -33,7 +36,7 @@ const Sidebar = () => {
                 <p>Home</p>
               </li>
             </Link>
-            <Link href="/">
+            <Link href="/explore">
               <li className="flex items-center space-x-2 px-4 py-3">
                 <HashtagIcon className="w-6 h-6" />
                 <p>Explore</p>
