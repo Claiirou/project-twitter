@@ -4,23 +4,12 @@ module.exports.createUser = ({ pseudo, email, picture }) => {
   return db.user.create({ data: { pseudo, email, picture } });
 };
 
-module.exports.searchUser = ({ search }) => {
+module.exports.findAllUsers = ({ search }) => {
   return db.user
     .findMany({
-      include: {
-        tweet: {
-          select: {
-            content: true,
-          },
-        },
-      },
       where: { pseudo: { contains: search } },
     })
     .catch(() => null);
-};
-
-module.exports.findAllUsers = () => {
-  return db.user.findMany();
 };
 
 module.exports.getOneUser = async (id) => {

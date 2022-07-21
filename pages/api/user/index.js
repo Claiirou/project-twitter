@@ -2,7 +2,7 @@ import base from "../../../middlewares/common";
 import { createUser, findAllUsers } from "../../../models/user";
 
 async function handleGetUsers(req, res) {
-  res.send(await findAllUsers());
+  res.send(await findAllUsers({ search: req.query.search }));
 }
 
 async function handlePostUser(req, res) {
