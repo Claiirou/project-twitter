@@ -108,36 +108,36 @@ const Sidebar = () => {
                   <p>Home</p>
                 </li>
               </Link>
-              <Link href="/">
+              <Link href="/explorer">
                 <li className="flex items-center space-x-2 px-4 py-6">
                   <HashtagIcon className="w-6 h-6" />
-                  <p>Explore</p>
+                  <p>Explorer</p>
                 </li>
               </Link>
-              <Link href="/">
+              <Link href="/notifications">
                 <li className="flex items-center space-x-2 px-4 py-6">
                   <BellIcon className="w-6 h-6" />
                   <p>Notifications</p>
                 </li>
               </Link>
-              <Link href="/">
+              <Link href="/messagesuploa">
                 <li className="flex items-center space-x-2 px-4 py-6">
                   <MailIcon className="w-6 h-6" />
                   <p>Messages</p>
                 </li>
               </Link>
 
-              <Link href="/">
+              <Link href="/signets">
                 <li className="flex items-center space-x-2 px-4 py-6">
                   <BookmarkIcon className="w-6 h-6" />
-                  <p>Bookmarks</p>
+                  <p>Signets</p>
                 </li>
               </Link>
 
-              <Link href="/">
+              <Link href="/profil">
                 <li className="flex items-center space-x-2 px-4 py-6">
                   <CollectionIcon className="w-6 h-6" />
-                  <p>Lists</p>
+                  <p>Profil</p>
                 </li>
               </Link>
             </ul>
