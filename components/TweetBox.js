@@ -44,7 +44,7 @@ function TweetBox() {
       <div className="flex flex-col">
         <img
           className="h-14 w-14 mr-5 object-cover rounded-full mt-4"
-          src="/avatar.jpg"
+          src={picture ? picture : "/avatar.jpg"}
           alt="avatar"
         />
         <label
@@ -52,6 +52,7 @@ function TweetBox() {
           htmlFor="picture"
         >
           <Widget
+            className={picture ? "uploadcare--widget__text:hidden" : ""}
             publicKey={process.env.NEXT_PUBLIC_UPLOADCARE_KEY}
             localeTranslations={buttonName()}
             onChange={(file) => {
