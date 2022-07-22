@@ -120,7 +120,7 @@ const Sidebar = () => {
                   <p>Notifications</p>
                 </li>
               </Link>
-              <Link href="/messages">
+              <Link href="/messagesuploa">
                 <li className="flex items-center space-x-2 px-4 py-6">
                   <MailIcon className="w-6 h-6" />
                   <p>Messages</p>
