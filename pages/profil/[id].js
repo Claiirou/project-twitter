@@ -1,10 +1,13 @@
+import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import UserCard from "../../components/UserCard";
+import Layout from "../../components/Layout";
 
 function UserCardDetail() {
   const [userCard, setUserCard] = useState([]);
-
-  const { id } = useParams();
+  const router = useRouter();
+  const { id } = router.query;
 
   useEffect(() => {
     axios.get(`/api/user/${id}`).then((res) => {
@@ -13,11 +16,11 @@ function UserCardDetail() {
   }, []);
 
   return (
-    <div>
-      {userCard.map((userBanana) => (
-        <UserCard key={userBanana.id} userCard={userBanana} />
-      ))}
-    </div>
+    <Layout>
+      <div>
+        <UserCard userId={userCard} />
+      </div>
+    </Layout>
   );
 }
 
