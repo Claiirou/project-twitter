@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          Int     @id @default(autoincrement())
+  pseudo      String  @db.VarChar(255)
+  email       String? @db.VarChar(255)
+  picture     String? @db.VarChar(255)
+  time        String? @db.VarChar(255)
+  hobbies     String?
+  abonnements Int
+  abonnes     Int
+}
+
+model Tweet {
+  id      Int     @id @default(autoincrement())
+  pseudo  String  @db.VarChar(255)
+  picture String? @db.VarChar(255)
+  content String
+  date    String?
+}
+
+model Hashtag {
+  id      Int    @id @default(autoincrement())
+  hashtag String @db.VarChar(255)
+  number  String
+}
+
+model Messages {
+  id      Int     @id @default(autoincrement())
+  pseudo  String  @db.VarChar(255)
+  content String
+  date    String?
+}
