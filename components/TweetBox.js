@@ -44,7 +44,7 @@ function TweetBox() {
       <div className="flex flex-col">
         <img
           className="h-14 w-14 mr-5 object-cover rounded-full mt-4"
-          src="/avatar.jpg"
+          src={picture ? picture : "/avatar.jpg"}
           alt="avatar"
         />
         <label
