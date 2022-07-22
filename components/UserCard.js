@@ -1,14 +1,6 @@
 import React from "react";
 
-function UserCard() {
-  const [userId, setUserId] = useState([]);
-  const { id } = useParams();
-
-  useEffect(() => {
-    axios.get(`/api/user/${id}`).then((res) => {
-      setUserId(res.data);
-    });
-  }, []);
+function UserCard({ userId }) {
   return (
     <>
       <div>
