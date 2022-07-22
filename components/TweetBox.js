@@ -20,7 +20,7 @@ function TweetBox() {
         picture,
       })
       .then(() => {
-        setPseudo(""), setContent("");
+        setPseudo(""), setContent(""), setPicture("");
         play();
       })
       .then(() => queryClient.invalidateQueries("home"))
