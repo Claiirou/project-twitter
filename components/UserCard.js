@@ -1,26 +1,22 @@
 import React from "react";
 
-function UserCard() {
-  const [userId, setUserId] = useState([]);
-  const { id } = useParams();
-
-  useEffect(() => {
-    axios.get(`/api/user/${id}`).then((res) => {
-      setUserId(res.data);
-    });
-  }, []);
+function UserCard({ userId }) {
   return (
     <>
-      <div>
+      <div className="flex flex-col items-center">
         <div>
-          <img src={userId.picture} alt="profil picture" />
+          <img
+            src={userId.picture}
+            alt="profil picture"
+            className="h-32 w-32 mr-5 object-cover rounded-full mt-4"
+          />
         </div>
-        <div>{userId.pseudo}</div>
+        <div className="text-4xl">{userId.pseudo}</div>
         <div>{userId.email}</div>
         <div>{userId.time}</div>
         <div>{userId.hobbies}</div>
-        <div>{userId.abonnements}</div>
-        <div>{userId.abonnes}</div>
+        <div>{userId.abonnements} abonnements</div>
+        <div>{userId.abonnes} abonnés</div>
       </div>
     </>
   );
