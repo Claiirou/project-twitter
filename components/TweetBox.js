@@ -52,6 +52,7 @@ function TweetBox() {
           htmlFor="picture"
         >
           <Widget
+            className={picture ? "uploadcare--widget__text:hidden" : ""}
             publicKey={process.env.NEXT_PUBLIC_UPLOADCARE_KEY}
             localeTranslations={buttonName()}
             onChange={(file) => {
